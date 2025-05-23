@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Schedule - NKK Express</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .schedule-hero {
+            height: 37vh;
+            background: linear-gradient(rgba(128, 0, 0, 0.1), rgba(0, 0, 0, 0.3)), url('2024/05/Rein.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .schedule-hero-content {
+            max-width: 800px;
+            padding: 30px;
+        }
+
+        .schedule-hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: white;
+            font-weight: 1000;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .schedule-hero-content p {
+            font-size: 1.7rem;
+            color: white;
+            line-height: 1.4;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .schedule-hero {
+                height: 40vh;
+            }
+
+            .schedule-hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .schedule-hero-content p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="2024/03/NKK-LOGO-2024-1-1536x1506.png" alt="NKK Express Logo">
+                </a>
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="schedule.html" class="active">Schedule</a></li>
+                <li><a href="book.html">Book Now</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="faq.html">FAQs</a></li>
+            </ul>
+            <div class="nav-contact">
+                <div class="contact-info">
+                    <span><i class="far fa-clock"></i> Mon-Fri: 8AM-4:30PM</span>
+                    <span><i class="fas fa-phone"></i> +267 391 5129</span>
+                </div>
+                <div class="nav-social">
+                    <a href="https://www.facebook.com/nkkexpress?mibextid=LQQJ4d%20" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="https://api.whatsapp.com/send/?phone=27736155897&text&type=phone_number&app_absent=0" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-no-banner">
+        <section class="schedule-hero">
+            <div class="schedule-hero-content">
+                <h1>Bus Schedule</h1>
+                <p>Plan your journey with our comprehensive timetable</p>
+            </div>
+        </section>
+
+        <section class="schedule-content">
+            <div class="schedule-intro">
+                <div class="intro-icon">
+                    <i class="fas fa-bus"></i>
+                </div>
+                <p class="schedule-description">NKK Express prides itself with providing public transportation for Botswana throughout the country for over 20 years. We are the preferred choice of travel for both long and short travel covering intercity routes, towns and major villages such as Gaborone, Francistown, Maun, Orapa, Mahalapye, Palapye just to name a few. We provide world class quality coaches that make travelling both comfortable and safe. Find below our Daily Travelling Schedule:</p>
+            </div>
+
+            <div class="schedule-grid">
+                <!-- Gaborone-Francistown Route -->
+                <div class="schedule-card">
+                    <div class="schedule-header">
+                        <i class="fas fa-bus"></i>
+                        <div class="header-text">
+                            <h2>GABORONE-FRANCISTOWN</h2>
+                            <span class="route-type">Via Mahalpye, Palapye</span>
+                        </div>
+                    </div>
+                    <div class="schedule-times">
+                        <div class="time-slot">
+                            <i class="far fa-clock"></i>
+                            <span>07:00hrs - GABORONE-FRANCISTOWN</span>
+                        </div>
+                        <div class="time-slot">
+                            <i class="far fa-clock"></i>
+                            <span>09:00hrs - GABORONE-FRANCISTOWN</span>
+                        </div>
+                        <div class="time-slot">
+                            <i class="far fa-clock"></i>
+                            <span>09:30hrs - GABORONE-FRANCISTOWN</span>
+                        </div>
+                        <div class="time-slot">
+                            <i class="far fa-clock"></i>
+                            <span>11:00hrs - GABORONE-FRANCISTOWN</span>
+                        </div>
+                        <div class="time-slot">
+                            <i class="far fa-clock"></i>
+                            <span>12:30hrs - GABORONE-FRANCISTOWN</span>
+                        </div>
+                        <div class="time-slot">
+                            <i class="far fa-clock"></i>
+                            <span>23:30hrs - GABORONE-FRANCISTOWN</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Francistown-Gaborone Route -->
+                <div class="schedule-card">
+                    <div class="schedule-header">
+                        <i class="fas fa-bus fa-flip-horizontal"></i>
+                        <div class="header-text">
+                            <h2>FRANCISTOWN-GABORONE</h2>
+                            <span class="route-type">Via Palapye, Mahalapye</span>
+                        </div>
+                    </div>
+                    <div class="schedule-times">
+                        <div class="time-slot">
+                            <i class="far fa-clock"></i>
+                            <span>07:30hrs - FRANCISTOWN-GABORONE</span>
+                        </div>
+                        <div class="time-slot">
+                            <i class="far fa-clock"></i>
+                            <span>09:30hrs - FRANCISTOWN-GABORONE</span>
+                        </div>
+                        <div class="time-slot">
+                            <i class="far fa-clock"></i>
+                            <span>12:00hrs - FRANCISTOWN-GABORONE</span>
+                        </div>
+                        <div class="time-slot">
+                            <i class="far fa-clock"></i>
+                            <span>15:00hrs - FRANCISTOWN-GABORONE</span>
+                        </div>
+                        <div class="time-slot">
+                            <i class="far fa-clock"></i>
+                            <span>17:00hrs - FRANCISTOWN-GABORONE</span>
+                        </div>
+                        <div class="time-slot">
+                            <i class="far fa-clock"></i>
+                            <span>23:30hrs - FRANCISTOWN-GABORONE</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gaborone-Maun Route -->
+                <div class="schedule-card">
+                    <div class="schedule-header">
+                        <i class="fas fa-bus"></i>
+                        <div class="header-text">
+                            <h2>GABORONE-MAUN</h2>
+                            <span class="route-type">Via Palapye</span>
+                        </div>
+                    </div>
+                    <div class="schedule-times">
+                        <div class="time-slot">
+                            <i class="far fa-clock"></i>
+                            <span>19:30hrs - GABORONE-MAUN VIA PALAPYE</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Maun-Gaborone Route -->
+                <div class="schedule-card">
+                    <div class="schedule-header">
+                        <i class="fas fa-bus fa-flip-horizontal"></i>
+                        <div class="header-text">
+                            <h2>MAUN-GABORONE</h2>
+                            <span class="route-type">Via Palapye</span>
+                        </div>
+                    </div>
+                    <div class="schedule-times">
+                        <div class="time-slot">
+                            <i class="far fa-clock"></i>
+                            <span>19:30hrs - MAUN-GABORONE VIA PALAPYE</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Francistown-Maun Route -->
+                <div class="schedule-card">
+                    <div class="schedule-header">
+                        <i class="fas fa-bus"></i>
+                        <div class="header-text">
+                            <h2>FRANCISTOWN-MAUN</h2>
+                            <span class="route-type">Via Letlhakane</span>
+                        </div>
+                    </div>
+                    <div class="schedule-times">
+                        <div class="time-slot">
+                            <i class="far fa-clock"></i>
+                            <span>21:30hrs - FRANCISTOWN-MAUN VIA LETLHAKANE</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Maun-Francistown Route -->
+                <div class="schedule-card">
+                    <div class="schedule-header">
+                        <i class="fas fa-bus fa-flip-horizontal"></i>
+                        <div class="header-text">
+                            <h2>MAUN-FRANCISTOWN</h2>
+                            <span class="route-type">Via Letlhakane</span>
+                        </div>
+                    </div>
+                    <div class="schedule-times">
+                        <div class="time-slot">
+                            <i class="far fa-clock"></i>
+                            <span>21:00hrs - MAUN-FRANCISTOWN VIA LETLHAKANE</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Johannesburg Route -->
+                <div class="schedule-card full-width special-route">
+                    <div class="schedule-header">
+                        <i class="fas fa-bus"></i>
+                        <div class="header-text">
+                            <h2>GABORONE-JOHANNESBURG</h2>
+                            <span class="route-type">OR Tambo International Airport</span>
+                        </div>
+                    </div>
+                    <div class="schedule-times">
+                        <div class="time-slot">
+                            <i class="far fa-clock"></i>
+                            <span>06:00hrs - Departure at NKK House Mogoditshane</span>
+                        </div>
+                        <div class="time-slot">
+                            <i class="far fa-clock"></i>
+                            <span>06:30hrs - Departure at Shell Filling Station, Riverwalk</span>
+                        </div>
+                        <div class="time-slot">
+                            <i class="far fa-clock"></i>
+                            <span>15:30hrs - Departure OR Tambo Airport (Bus Terminal)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-phone"></i> +267 391 5129</p>
+                <p><i class="fas fa-envelope"></i> info@nkkexpress.co.bw</p>
+                <p><i class="fas fa-envelope-open-text"></i> P o Box 20860, Gaborone </p>
+                <p><i class="fas fa-map-marker-alt"></i> Plot 11807, Mogoditshane, Botswana</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/nkkexpress?mibextid=LQQJ4d%20" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="https://api.whatsapp.com/send/?phone=27736155897&text&type=phone_number&app_absent=0" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="schedule.html">Bus Schedule</a></li>
+                    <li><a href="book.html">Book Tickets</a></li>
+                    <li><a href="faq.html">FAQs</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Policies and Regulations</h3>
+                <ul>
+                    <li><a href="Terms and Conditions of NKK Express Passenger Transport Website.pdf" target="_blank">Terms & Conditions</a></li>
+                    <li><a href="Safety & Quality.pdf" target="_blank">Safety & Quality</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 NKK Express. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 

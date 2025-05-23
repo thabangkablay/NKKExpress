@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Now - NKK Express</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #800000;
+            --primary-light: rgba(128, 0, 0, 0.1);
+            --primary-dark: #600000;
+            --secondary-color: #f8f9fa;
+            --accent-color: #D4AF37;
+            --text-color: #333;
+            --border-radius: 12px;
+            --box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .booking-hero {
+            height: 53vh;
+            background: linear-gradient(rgba(128, 0, 0, 0.1), rgba(0, 0, 0, 0.3)), url('2024/05/lesediAndNaledi.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            margin-bottom: 40px;
+            margin-top: 0;
+        }
+
+        .booking-hero-content {
+            max-width: 800px;
+            padding: 30px;
+        }
+
+        .booking-hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: white;
+            font-weight: 1000;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .booking-hero-content p {
+            font-size: 1.5rem;
+            color: white;
+            line-height: 1.4;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .booking-hero {
+                height: 40vh;
+            }
+
+            .booking-hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .booking-hero-content p {
+                font-size: 1rem;
+            }
+        }
+
+        .booking-content {
+            padding: 3rem 0;
+            background: var(--secondary-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .booking-progress {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 3rem;
+            padding: 0 10%;
+        }
+
+        .progress-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            flex: 1;
+        }
+
+        .progress-step::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            background: #e0e0e0;
+            top: 25px;
+            left: 50%;
+            z-index: 1;
+        }
+
+        .progress-step:last-child::before {
+            display: none;
+        }
+
+        .progress-step.active .step-icon {
+            background: var(--primary-color);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .step-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--box-shadow);
+            z-index: 2;
+            transition: all 0.3s ease;
+            color: var(--primary-color);
+        }
+
+        .step-icon i {
+            font-size: 1.2rem;
+        }
+
+        .step-label {
+            margin-top: 1rem;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+
+        .booking-step {
+            display: none;
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--box-shadow);
+            margin-bottom: 2rem;
+        }
+
+        .booking-step.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .step-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .step-header h2 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+            font-weight: 500;
+        }
+
+        .form-group label i {
+            color: var(--primary-color);
+            margin-right: 0.5rem;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 3px var(--primary-light);
+        }
+
+        .form-group input.error,
+        .form-group select.error {
+            border-color: #dc3545;
+            background-color: #fff8f8;
+        }
+
+        .form-group input.error:focus,
+        .form-group select.error:focus {
+            box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1);
+        }
+
+        .error-message {
+            color: #dc3545;
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+            display: block;
+            font-weight: 500;
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+
+        .prev-step,
+        .next-step,
+        .submit-booking {
+            padding: 12px 24px;
+            border: none;
+            border-radius: var(--border-radius);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .prev-step {
+            background: #e0e0e0;
+            color: var(--text-color);
+        }
+
+        .next-step,
+        .submit-booking {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .prev-step:hover {
+            background: #d0d0d0;
+        }
+
+        .next-step:hover,
+        .submit-booking:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(128, 0, 0, 0.2);
+        }
+
+        .seat-map {
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: var(--border-radius);
+            margin: 2rem auto;
+            max-width: 800px;
+            box-shadow: var(--box-shadow);
+        }
+
+        .bus-layout {
+            position: relative;
+            padding: 3rem 1rem;
+            background: linear-gradient(to bottom, #f8f9fa, #fff);
+            border-radius: 30px;
+            max-width: 700px;
+            margin: 0 auto;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e0e0e0;
+        }
+
+        .bus-front {
+            position: absolute;
+            top: -20px;
+            right: 20px;
+            width: 120px;
+            height: 60px;
+            background: linear-gradient(to bottom, #e0e0e0, #f8f9fa);
+            border-radius: 30px 30px 0 0;
+            border: 1px solid #e0e0e0;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            overflow: hidden;
+            transform: none;
+        }
+
+        .driver-area {
+            position: relative;
+            width: 90px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            background: linear-gradient(to bottom, #f8f9fa, #e0e0e0);
+            border-radius: 25px;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-right: 10px;
+            border: 1px solid #ddd;
+        }
+
+        .steering-wheel {
+            width: 34px;
+            height: 34px;
+            border: 3px solid #444;
+            border-radius: 50%;
+            position: relative;
+            transform: rotate(-20deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 5px;
+            background: linear-gradient(135deg, #666, #444);
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2),
+                       inset 2px 2px 4px rgba(255, 255, 255, 0.2);
+        }
+
+        /* Center hub of the steering wheel */
+        .steering-wheel::before {
+            content: '';
+            position: absolute;
+            width: 14px;
+            height: 14px;
+            background: linear-gradient(135deg, #888, #666);
+            border-radius: 50%;
+            box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Spokes of the steering wheel */
+        .steering-wheel::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(0deg, transparent 47%, #444 47%, #444 53%, transparent 53%),
+                linear-gradient(90deg, transparent 47%, #444 47%, #444 53%, transparent 53%),
+                linear-gradient(45deg, transparent 45%, #444 45%, #444 55%, transparent 55%),
+                linear-gradient(-45deg, transparent 45%, #444 45%, #444 55%, transparent 55%);
+            border-radius: 50%;
+        }
+
+        /* Inner rim highlight */
+        .steering-wheel-inner {
+            position: absolute;
+            width: 26px;
+            height: 26px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        /* Grip details */
+        .steering-wheel-grips {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .steering-wheel-grips::before,
+        .steering-wheel-grips::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            height: 10px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 3px;
+        }
+
+        .steering-wheel-grips::before {
+            top: 4px;
+            right: 4px;
+            transform: rotate(-45deg);
+        }
+
+        .steering-wheel-grips::after {
+            bottom: 4px;
+            left: 4px;
+            transform: rotate(-45deg);
+        }
+
+        /* Add a small dashboard indicator */
+        .dashboard {
+            position: absolute;
+            top: 50%;
+            right: 45px;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 10px;
+            background: #333;
+            border-radius: 3px;
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .dashboard::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            right: 5px;
+            width: 4px;
+            height: 4px;
+            background: #ff4444;
+            border-radius: 50%;
+            box-shadow: 0 0 3px #ff0000;
+            animation: blink 2s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .seats-container {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 8px;
+            max-width: 650px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        .seat {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid #e0e0e0;
+            font-weight: 500;
+            font-size: 0.85rem;
+            background: #f0e6ff;
+            position: relative;
+            margin: 2px;
+        }
+
+        .aisle {
+            grid-column: span 1;
+            position: relative;
+            width: 20px;
+            margin: 0 auto;
+        }
+
+        .aisle::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 2px;
+            height: 100%;
+            background: #e0e0e0;
+            transform: translate(-50%, -50%);
+            border-style: dashed;
+        }
+
+        .bus-layout::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            right: 20px;
+            width: 120px;
+            height: 1px;
+            background: #e0e0e0;
+        }
+
+        .bus-layout::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 20px;
+            right: 20px;
+            height: 1px;
+            background: #e0e0e0;
+        }
+
+        .seat.occupied {
+            background: var(--primary-color);
+            color: white;
+            cursor: not-allowed;
+            border-color: var(--primary-color);
+        }
+
+        .seat.selected {
+            background: #4CAF50;  /* green for selected seats */
+            color: white;
+            border-color: #45a049;
+        }
+
+        .seat.available:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-color: #4CAF50;
+        }
+
+        .seat-legend {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            padding: 1rem;
+            background: white;
+            border-radius: var(--border-radius);
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .legend-item .seat {
+            width: 30px;
+            height: 30px;
+            cursor: default;
+            font-size: 0.8rem;
+            pointer-events: none;
+            transform: none !important;
+            transition: none;
+            box-shadow: none;
+        }
+
+        .legend-item .seat.available {
+            background: #f0e6ff;
+            border-color: #e0e0e0;
+        }
+
+        .legend-item .seat.selected {
+            background: #4CAF50;
+            border-color: #45a049;
+            color: white;
+        }
+
+        .legend-item .seat.occupied {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+        }
+
+        .legend-item span {
+            font-size: 0.9rem;
+            color: var(--text-color);
+            font-weight: 500;
+        }
+
+        .legend-item .seat:hover {
+            transform: none !important;
+            box-shadow: none !important;
+            border-color: inherit !important;
+            animation: none !important;
+        }
+
+        .seat-number {
+            position: absolute;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        @keyframes seatHover {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-2px); }
+            100% { transform: translateY(0); }
+        }
+
+        .seat:hover {
+            animation: seatHover 0.3s ease;
+        }
+
+        .payment-methods {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .payment-method {
+            flex: 1;
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: var(--border-radius);
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .payment-method.active {
+            border-color: var(--primary-color);
+            background: var(--primary-light);
+        }
+
+        .payment-method i {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .payment-method:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        .summary-items {
+            background: var(--secondary-color);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+        }
+
+        .summary-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .summary-item i {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+
+        .summary-item.total {
+            border-bottom: none;
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .seats-container {
+                gap: 6px;
+            }
+
+            .seat {
+                width: 35px;
+                height: 35px;
+                font-size: 0.8rem;
+            }
+        }
+
+        .legend-button {
+            width: 30px;
+            height: 30px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            pointer-events: none;
+            margin: 2px;
+        }
+
+        .legend-button.available {
+            background-color: #f0e6ff !important;
+            border: 2px solid #e0e0e0 !important;
+        }
+
+        .legend-button.selected {
+            background-color: #4CAF50 !important;
+            border: 2px solid #45a049 !important;
+            color: white !important;
+        }
+
+        .legend-button.occupied {
+            background-color: var(--primary-color) !important;
+            border: 2px solid var(--primary-color) !important;
+            color: white !important;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="2024/03/NKK-LOGO-2024-1-1536x1506.png" alt="NKK Express Logo">
+                </a>
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="schedule.html">Schedule</a></li>
+                <li><a href="book.html" class="active">Book Now</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="faq.html">FAQs</a></li>
+            </ul>
+            <div class="nav-contact">
+                <div class="contact-info">
+                    <span><i class="far fa-clock"></i> Mon-Fri: 8AM-4:30PM</span>
+                    <span><i class="fas fa-phone"></i> +267 391 5129</span>
+                </div>
+                <div class="nav-social">
+                    <a href="https://www.facebook.com/nkkexpress?mibextid=LQQJ4d%20" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="https://api.whatsapp.com/send/?phone=27736155897&text&type=phone_number&app_absent=0" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-no-banner">
+        <section class="booking-hero">
+            <div class="booking-hero-content">
+                <h1>Book Your Journey</h1>
+                <p>Safe, reliable, and comfortable travel across Botswana</p>
+            </div>
+        </section>
+
+        <section class="booking-content">
+            <div class="container">
+                <div class="booking-progress">
+                    <div class="progress-step active" data-step="1">
+                        <div class="step-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <span class="step-label">Route</span>
+                    </div>
+                    <div class="progress-step" data-step="2">
+                        <div class="step-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <span class="step-label">Details</span>
+                    </div>
+                    <div class="progress-step" data-step="3">
+                        <div class="step-icon">
+                            <i class="fas fa-chair"></i>
+                        </div>
+                        <span class="step-label">Seat</span>
+                    </div>
+                    <div class="progress-step" data-step="4">
+                        <div class="step-icon">
+                            <i class="fas fa-credit-card"></i>
+                        </div>
+                        <span class="step-label">Payment</span>
+                    </div>
+                </div>
+
+                <form class="booking-form" id="bookingForm">
+                    <!-- Step 1: Route Selection -->
+                    <div class="booking-step active" data-step="1">
+                        <div class="step-header">
+                            <h2><i class="fas fa-map-marker-alt"></i> Select Your Route</h2>
+                            <p>Choose your departure and destination cities</p>
+                        </div>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="bookFrom">
+                                    <i class="fas fa-plane-departure"></i> From:
+                                </label>
+                                <select id="bookFrom" required>
+                                    <option value="">Select Departure City</option>
+                                    <option value="gaborone">Gaborone</option>
+                                    <option value="francistown">Francistown</option>
+                                    <option value="maun">Maun</option>
+                                    <option value="johannesburg">Johannesburg</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="bookTo">
+                                    <i class="fas fa-plane-arrival"></i> To:
+                                </label>
+                                <select id="bookTo" required>
+                                    <option value="">Select Destination City</option>
+                                    <option value="gaborone">Gaborone</option>
+                                    <option value="francistown">Francistown</option>
+                                    <option value="maun">Maun</option>
+                                    <option value="johannesburg">Johannesburg</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="bookDate">
+                                    <i class="far fa-calendar-alt"></i> Travel Date:
+                                </label>
+                                <input type="date" id="bookDate" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="bookTime">
+                                    <i class="far fa-clock"></i> Departure Time:
+                                </label>
+                                <select id="bookTime" required>
+                                    <option value="">Select Time</option>
+                                    <option value="06:00">06:00 AM</option>
+                                    <option value="09:00">09:00 AM</option>
+                                    <option value="14:00">02:00 PM</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="next-step">Continue <i class="fas fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Passenger Details -->
+                    <div class="booking-step" data-step="2">
+                        <div class="step-header">
+                            <h2><i class="fas fa-user"></i> Passenger Details</h2>
+                            <p>Enter your personal information</p>
+                        </div>
+                        <div class="passenger-form">
+                            <div class="form-group">
+                                <label for="passengerName">
+                                    <i class="fas fa-user"></i> Full Name:
+                                </label>
+                                <input type="text" id="passengerName" required placeholder="Enter your full name">
+                            </div>
+                            <div class="form-group">
+                                <label for="passengerEmail">
+                                    <i class="fas fa-envelope"></i> Email:
+                                </label>
+                                <input type="email" id="passengerEmail" required placeholder="Enter your email">
+                            </div>
+                            <div class="form-group">
+                                <label for="passengerPhone">
+                                    <i class="fas fa-phone"></i> Phone:
+                                </label>
+                                <input type="tel" id="passengerPhone" required placeholder="Enter your phone number">
+                            </div>
+                            <div class="form-group">
+                                <label for="passengerType">
+                                    <i class="fas fa-users"></i> Passenger Type:
+                                </label>
+                                <select id="passengerType" required>
+                                    <option value="adult">Adult</option>
+                                    <option value="child">Child (2-12 years)</option>
+                                    <option value="senior">Senior Citizen</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="prev-step"><i class="fas fa-arrow-left"></i> Back</button>
+                            <button type="button" class="next-step">Continue <i class="fas fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Seat Selection -->
+                    <div class="booking-step" data-step="3">
+                        <div class="step-header">
+                            <h2><i class="fas fa-chair"></i> Select Your Seat</h2>
+                            <p>Choose your preferred seat on the bus</p>
+                        </div>
+                        <div class="seat-map">
+                            <div class="bus-layout">
+                                <div class="bus-front">
+                                    <div class="dashboard"></div>
+                                    <div class="driver-area">
+                                        <div class="steering-wheel">
+                                            <div class="steering-wheel-inner"></div>
+                                            <div class="steering-wheel-grips"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="seats-container">
+                                    <!-- Row 1 -->
+                                    <div class="seat available" data-seat="1">1</div>
+                                    <div class="seat available" data-seat="2">2</div>
+                                    <div class="aisle"></div>
+                                    <div class="seat available" data-seat="3">3</div>
+                                    <div class="seat available" data-seat="4">4</div>
+                                    <div class="seat available" data-seat="5">5</div>
+
+                                    <!-- Row 2 -->
+                                    <div class="seat available" data-seat="6">6</div>
+                                    <div class="seat available" data-seat="7">7</div>
+                                    <div class="aisle"></div>
+                                    <div class="seat available" data-seat="8">8</div>
+                                    <div class="seat available" data-seat="9">9</div>
+                                    <div class="seat available" data-seat="10">10</div>
+
+                                    <!-- Row 3 -->
+                                    <div class="seat available" data-seat="11">11</div>
+                                    <div class="seat available" data-seat="12">12</div>
+                                    <div class="aisle"></div>
+                                    <div class="seat available" data-seat="13">13</div>
+                                    <div class="seat occupied" data-seat="14">14</div>
+                                    <div class="seat occupied" data-seat="15">15</div>
+
+                                    <!-- Row 4 -->
+                                    <div class="seat available" data-seat="16">16</div>
+                                    <div class="seat available" data-seat="17">17</div>
+                                    <div class="aisle"></div>
+                                    <div class="seat available" data-seat="18">18</div>
+                                    <div class="seat available" data-seat="19">19</div>
+                                    <div class="seat available" data-seat="20">20</div>
+
+                                    <!-- Row 5 -->
+                                    <div class="seat available" data-seat="21">21</div>
+                                    <div class="seat available" data-seat="22">22</div>
+                                    <div class="aisle"></div>
+                                    <div class="seat available" data-seat="23">23</div>
+                                    <div class="seat available" data-seat="24">24</div>
+                                    <div class="seat available" data-seat="25">25</div>
+
+                                    <!-- Row 6 -->
+                                    <div class="seat available" data-seat="26">26</div>
+                                    <div class="seat available" data-seat="27">27</div>
+                                    <div class="aisle"></div>
+                                    <div class="seat available" data-seat="28">28</div>
+                                    <div class="seat available" data-seat="29">29</div>
+                                    <div class="seat available" data-seat="30">30</div>
+
+                                    <!-- Row 7 -->
+                                    <div class="seat available" data-seat="31">31</div>
+                                    <div class="seat available" data-seat="32">32</div>
+                                    <div class="aisle"></div>
+                                    <div class="seat available" data-seat="33">33</div>
+                                    <div class="seat available" data-seat="34">34</div>
+                                    <div class="seat available" data-seat="35">35</div>
+
+                                    <!-- Row 8 -->
+                                    <div class="seat available" data-seat="36">36</div>
+                                    <div class="seat available" data-seat="37">37</div>
+                                    <div class="aisle"></div>
+                                    <div class="seat available" data-seat="38">38</div>
+                                    <div class="seat occupied" data-seat="39">39</div>
+                                    <div class="seat available" data-seat="40">40</div>
+
+                                    <!-- Row 9 -->
+                                    <div class="seat available" data-seat="41">41</div>
+                                    <div class="seat available" data-seat="42">42</div>
+                                    <div class="aisle"></div>
+                                    <div class="seat available" data-seat="43">43</div>
+                                    <div class="seat available" data-seat="44">44</div>
+                                    <div class="seat available" data-seat="45">45</div>
+
+                                    <!-- Row 10 -->
+                                    <div class="seat available" data-seat="46">46</div>
+                                    <div class="seat available" data-seat="47">47</div>
+                                    <div class="aisle"></div>
+                                    <div class="seat available" data-seat="48">48</div>
+                                    <div class="seat available" data-seat="49">49</div>
+                                    <div class="seat occupied" data-seat="50">50</div>
+
+                                    <!-- Row 11 -->
+                                    <div class="seat available" data-seat="51">51</div>
+                                    <div class="seat available" data-seat="52">52</div>
+                                    <div class="aisle"></div>
+                                    <div class="seat available" data-seat="53">53</div>
+                                    <div class="seat available" data-seat="54">54</div>
+                                    <div class="seat available" data-seat="55">55</div>
+
+                                    <!-- Row 12 -->
+                                    <div class="seat available" data-seat="56">56</div>
+                                    <div class="seat available" data-seat="57">57</div>
+                                    <div class="aisle"></div>
+                                    <div class="seat available" data-seat="58">58</div>
+                                    <div class="seat available" data-seat="59">59</div>
+                                    <div class="seat available" data-seat="60">60</div>
+                                </div>
+                            </div>
+                            <div class="seat-legend">
+                                <div class="legend-item">
+                                    <div class="legend-button available"></div>
+                                    <span>Available</span>
+                                </div>
+                                <div class="legend-item">
+                                    <div class="legend-button selected"></div>
+                                    <span>Selected</span>
+                                </div>
+                                <div class="legend-item">
+                                    <div class="legend-button occupied"></div>
+                                    <span>Occupied</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="prev-step"><i class="fas fa-arrow-left"></i> Back</button>
+                            <button type="button" class="next-step">Continue <i class="fas fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Payment -->
+                    <div class="booking-step" data-step="4">
+                        <div class="step-header">
+                            <h2><i class="fas fa-credit-card"></i> Payment Details</h2>
+                            <p>Complete your booking securely</p>
+                        </div>
+                        <div class="payment-container">
+                            <div class="payment-summary">
+                                <h3>Booking Summary</h3>
+                                <div class="summary-items">
+                                    <div class="summary-item">
+                                        <i class="fas fa-route"></i>
+                                        <div class="summary-details">
+                                            <span class="label">Route:</span>
+                                            <span class="value" id="summaryRoute">Gaborone to Johannesburg</span>
+                                        </div>
+                                    </div>
+                                    <div class="summary-item">
+                                        <i class="far fa-calendar-alt"></i>
+                                        <div class="summary-details">
+                                            <span class="label">Date & Time:</span>
+                                            <span class="value" id="summaryDateTime">March 20, 2024 - 06:00 AM</span>
+                                        </div>
+                                    </div>
+                                    <div class="summary-item">
+                                        <i class="fas fa-chair"></i>
+                                        <div class="summary-details">
+                                            <span class="label">Seat Number:</span>
+                                            <span class="value" id="summarySeat">1A</span>
+                                        </div>
+                                    </div>
+                                    <div class="summary-item">
+                                        <i class="fas fa-user"></i>
+                                        <div class="summary-details">
+                                            <span class="label">Passenger:</span>
+                                            <span class="value" id="summaryPassenger">John Doe</span>
+                                        </div>
+                                    </div>
+                                    <div class="summary-item total">
+                                        <i class="fas fa-tag"></i>
+                                        <div class="summary-details">
+                                            <span class="label">Total Amount:</span>
+                                            <span class="value" id="summaryAmount">P500</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="payment-form">
+                                <div class="payment-methods">
+                                    <div class="payment-method active">
+                                        <i class="fas fa-credit-card"></i>
+                                        <span>Credit Card</span>
+                                    </div>
+                                    <div class="payment-method">
+                                        <i class="fas fa-university"></i>
+                                        <span>Bank Transfer</span>
+                                    </div>
+                                    <div class="payment-method">
+                                        <i class="fas fa-mobile-alt"></i>
+                                        <span>Mobile Money</span>
+                                    </div>
+                                </div>
+                                <div class="card-form">
+                                    <div class="form-group">
+                                        <label for="cardName">
+                                            <i class="fas fa-user"></i> Name on Card:
+                                        </label>
+                                        <input type="text" id="cardName" required placeholder="Enter name as shown on card">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cardNumber">
+                                            <i class="fas fa-credit-card"></i> Card Number:
+                                        </label>
+                                        <input type="text" id="cardNumber" required placeholder="1234 5678 9012 3456">
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="cardExpiry">
+                                                <i class="far fa-calendar-alt"></i> Expiry Date:
+                                            </label>
+                                            <input type="text" id="cardExpiry" placeholder="MM/YY" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="cardCVV">
+                                                <i class="fas fa-lock"></i> CVV:
+                                            </label>
+                                            <input type="text" id="cardCVV" placeholder="123" required>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="prev-step"><i class="fas fa-arrow-left"></i> Back</button>
+                            <button type="submit" class="submit-booking">Confirm Booking <i class="fas fa-check"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-phone"></i> +267 391 5129</p>
+                <p><i class="fas fa-envelope"></i> info@nkkexpress.co.bw</p>
+                <p><i class="fas fa-envelope-open-text"></i> P o Box 20860, Gaborone </p>
+                <p><i class="fas fa-map-marker-alt"></i> Plot 11807, Mogoditshane, Botswana</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/nkkexpress?mibextid=LQQJ4d%20" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="https://api.whatsapp.com/send/?phone=27736155897&text&type=phone_number&app_absent=0" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="schedule.html">Bus Schedule</a></li>
+                    <li><a href="book.html">Book Tickets</a></li>
+                    <li><a href="faq.html">FAQs</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Policies and Regulations</h3>
+                <ul>
+                    <li><a href="Terms and Conditions of NKK Express Passenger Transport Website.pdf" target="_blank">Terms & Conditions</a></li>
+                    <li><a href="Safety & Quality.pdf" target="_blank">Safety & Quality</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 NKK Express. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Set minimum date for travel date input
+        const dateInput = document.getElementById('bookDate');
+        const today = new Date();
+        const year = today.getFullYear();
+        const month = String(today.getMonth() + 1).padStart(2, '0');
+        const day = String(today.getDate()).padStart(2, '0');
+        const minDate = `${year}-${month}-${day}`;
+        dateInput.setAttribute('min', minDate);
+
+        const form = document.getElementById('bookingForm');
+        const steps = document.querySelectorAll('.booking-step');
+        const progressSteps = document.querySelectorAll('.progress-step');
+        let currentStep = 1;
+
+        // Initialize form
+        updateSteps();
+
+        // Handle next step buttons
+        document.querySelectorAll('.next-step').forEach(button => {
+            button.addEventListener('click', () => {
+                if (validateStep(currentStep)) {
+                    currentStep++;
+                    updateSteps();
+                    updateSummary();
+                }
+            });
+        });
+
+        // Handle previous step buttons
+        document.querySelectorAll('.prev-step').forEach(button => {
+            button.addEventListener('click', () => {
+                currentStep--;
+                updateSteps();
+            });
+        });
+
+        // Handle seat selection
+        document.querySelectorAll('.seat.available').forEach(seat => {
+            seat.addEventListener('click', () => {
+                document.querySelectorAll('.seat.selected').forEach(selected => {
+                    selected.classList.remove('selected');
+                });
+                seat.classList.add('selected');
+                document.getElementById('summarySeat').textContent = seat.dataset.seat;
+            });
+        });
+
+        // Handle payment method selection
+        document.querySelectorAll('.payment-method').forEach(method => {
+            method.addEventListener('click', () => {
+                document.querySelectorAll('.payment-method').forEach(m => {
+                    m.classList.remove('active');
+                });
+                method.classList.add('active');
+            });
+        });
+
+        // Form submission
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (validateStep(currentStep)) {
+                // Show success message
+                alert('Booking successful! A confirmation email will be sent shortly.');
+                // Reset form
+                form.reset();
+                currentStep = 1;
+                updateSteps();
+            }
+        });
+
+        // Update steps visibility
+        function updateSteps() {
+            steps.forEach((step, index) => {
+                step.classList.toggle('active', index + 1 === currentStep);
+            });
+            progressSteps.forEach((step, index) => {
+                step.classList.toggle('active', index + 1 <= currentStep);
+            });
+        }
+
+        // Validate current step
+        function validateStep(step) {
+            const currentStepElement = document.querySelector(`.booking-step[data-step="${step}"]`);
+            const requiredFields = currentStepElement.querySelectorAll('[required]');
+            let isValid = true;
+
+            // Special validation for step 1 (route selection)
+            if (step === 1) {
+                const fromCity = document.getElementById('bookFrom').value;
+                const toCity = document.getElementById('bookTo').value;
+                
+                if (fromCity && toCity && fromCity === toCity) {
+                    isValid = false;
+                    showError(document.getElementById('bookTo'), 'Departure and destination cities cannot be the same');
+                    document.getElementById('bookTo').classList.add('error');
+                    return false;
+                }
+            }
+
+            requiredFields.forEach(field => {
+                if (!field.value) {
+                    isValid = false;
+                    field.classList.add('error');
+                    showError(field, 'This field is required');
+                } else {
+                    field.classList.remove('error');
+                    removeError(field);
+                }
+            });
+
+            return isValid;
+        }
+
+        // Show error message
+        function showError(field, message) {
+            const existingError = field.parentElement.querySelector('.error-message');
+            if (!existingError) {
+                const errorDiv = document.createElement('div');
+                errorDiv.className = 'error-message';
+                errorDiv.style.color = 'red';
+                errorDiv.style.fontSize = '0.8rem';
+                errorDiv.style.marginTop = '0.25rem';
+                errorDiv.textContent = message;
+                field.parentElement.appendChild(errorDiv);
+            }
+        }
+
+        // Remove error message
+        function removeError(field) {
+            const error = field.parentElement.querySelector('.error-message');
+            if (error) {
+                error.remove();
+            }
+        }
+
+        // Update booking summary
+        function updateSummary() {
+            if (currentStep === 4) {
+                const from = document.getElementById('bookFrom').value;
+                const to = document.getElementById('bookTo').value;
+                const date = document.getElementById('bookDate').value;
+                const time = document.getElementById('bookTime').value;
+                const name = document.getElementById('passengerName').value;
+                const seat = document.querySelector('.seat.selected')?.dataset.seat || '';
+
+                document.getElementById('summaryRoute').textContent = `${from} to ${to}`;
+                document.getElementById('summaryDateTime').textContent = `${formatDate(date)} - ${time}`;
+                document.getElementById('summarySeat').textContent = seat;
+                document.getElementById('summaryPassenger').textContent = name;
+                // Calculate price based on route (simplified)
+                document.getElementById('summaryAmount').textContent = 'P500';
+            }
+        }
+
+        // Format date
+        function formatDate(dateString) {
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            return new Date(dateString).toLocaleDateString(undefined, options);
+        }
+
+        // Add input animations
+        document.querySelectorAll('input, select').forEach(input => {
+            input.addEventListener('focus', () => {
+                input.parentElement.classList.add('focused');
+            });
+            input.addEventListener('blur', () => {
+                input.parentElement.classList.remove('focused');
+            });
+        });
+
+        // Add event listeners for the route selection dropdowns
+        document.getElementById('bookFrom').addEventListener('change', validateRoute);
+        document.getElementById('bookTo').addEventListener('change', validateRoute);
+
+        function validateRoute() {
+            const fromCity = document.getElementById('bookFrom').value;
+            const toCity = document.getElementById('bookTo').value;
+            const toField = document.getElementById('bookTo');
+
+            if (fromCity && toCity && fromCity === toCity) {
+                showError(toField, 'Departure and destination cities cannot be the same');
+                toField.classList.add('error');
+            } else {
+                removeError(toField);
+                toField.classList.remove('error');
+            }
+        }
+    });
+
+    // Mobile Navigation Toggle
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    // Toggle function for mobile menu
+    function toggleMobileMenu(e) {
+        if (e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+        navToggle.classList.toggle('active');
+        navLinks.classList.toggle('active');
+        document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+    }
+
+    // Add click event listener
+    navToggle.addEventListener('click', toggleMobileMenu);
+
+    // Add touch event listener for mobile devices
+    navToggle.addEventListener('touchend', toggleMobileMenu);
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!navToggle.contains(e.target) && !navLinks.contains(e.target) && navLinks.classList.contains('active')) {
+            navToggle.classList.remove('active');
+            navLinks.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+
+    // Close mobile menu when pressing Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+            navToggle.classList.remove('active');
+            navLinks.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+
+    // Close mobile menu when clicking on a link
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            navToggle.classList.remove('active');
+            navLinks.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    });
+    </script>
+</body>
+</html> 

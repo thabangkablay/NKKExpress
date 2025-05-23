@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - NKK Express</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .contact-hero {
+            height: 53vh;
+            background: linear-gradient(rgba(128, 0, 0, 0.1), rgba(0, 0, 0, 0.3)), url('2024/05/sales.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .contact-hero-content {
+            max-width: 800px;
+            padding: 30px;
+        }
+
+        .contact-hero-content h1 {
+            font-size: 3.1rem;
+            margin-bottom: 1rem;
+            color: white;
+            font-weight: 1000;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .contact-hero-content p {
+            font-size: 1.4rem;
+            color: white;
+            line-height: 1.4;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .contact-hero {
+                height: 40vh;
+            }
+
+            .contact-hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .contact-hero-content p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="2024/03/NKK-LOGO-2024-1-1536x1506.png" alt="NKK Express Logo">
+                </a>
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="schedule.html">Schedule</a></li>
+                <li><a href="book.html">Book Now</a></li>
+                <li><a href="contact.html" class="active">Contact Us</a></li>
+                <li><a href="faq.html">FAQs</a></li>
+            </ul>
+            <div class="nav-contact">
+                <div class="contact-info">
+                    <span><i class="far fa-clock"></i> Mon-Fri: 8AM-4:30PM</span>
+                    <span><i class="fas fa-phone"></i> +267 391 5129</span>
+                </div>
+                <div class="nav-social">
+                    <a href="https://www.facebook.com/nkkexpress?mibextid=LQQJ4d%20" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="https://api.whatsapp.com/send/?phone=27736155897&text&type=phone_number&app_absent=0" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="contact-hero">
+            <div class="contact-hero-content">
+                <h1>Contact Us</h1>
+                <p>We're here to help and answer any questions you might have</p>
+            </div>
+        </section>
+
+        <section class="contact-content">
+            <div class="container">
+                <div class="get-in-touch">
+                    <h1 style="color: maroon;">Get in Touch</h1>
+                    <p class="subtitle" style="color: black;">Have questions about our services? We're here to help and answer any question you might have.</p>
+                    
+                    <div class="contact-grid">
+                        <div class="contact-info-card">
+                            <h2>Contact Information</h2>
+                            <div class="info-list">
+                                <div class="info-item">
+                                    <i class="fas fa-phone"></i>
+                                    <div class="text-content">
+                                        <p>Phone</p>
+                                        <p class="detail">+267 391 5129</p>
+                                    </div>
+                                </div>
+                                <div class="info-item">
+                                    <i class="fas fa-envelope"></i>
+                                    <div class="text-content">
+                                        <p>Email</p>
+                                        <p class="detail">info@nkkexpress.co.bw</p>
+                                    </div>
+                                </div>
+                                <div class="info-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <div class="text-content">
+                                        <p>Location</p>
+                                        <p class="detail">Plot 11807, Mogoditsane, Botswana</p>
+                                    </div>
+                                </div>
+                                <div class="info-item">
+                                    <i class="far fa-clock"></i>
+                                    <div class="text-content">
+                                        <p>Working Hours</p>
+                                        <p class="detail">Mon-Fri: 8:00 AM - 4:30 PM</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="social-links">
+                                <a href="https://www.facebook.com/nkkexpress?mibextid=LQQJ4d%20" target="_blank" title="Facebook">
+                                    <i class="fab fa-facebook"></i> Follow us on Facebook
+                                </a>
+                                <a href="https://api.whatsapp.com/send/?phone=27736155897&text&type=phone_number&app_absent=0" target="_blank" title="WhatsApp">
+                                    <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="contact-form-wrapper">
+                            <form class="contact-form">
+                                <div class="form-group">
+                                    <label for="fullName">
+                                        <i class="fas fa-user"></i> Full Name
+                                    </label>
+                                    <input type="text" id="fullName" placeholder="Enter your full name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">
+                                        <i class="fas fa-envelope"></i> Email Address
+                                    </label>
+                                    <input type="email" id="email" placeholder="Enter your email address" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">
+                                        <i class="fas fa-phone"></i> Phone Number
+                                    </label>
+                                    <input type="tel" id="phone" placeholder="Enter your phone number" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="subject">
+                                        <i class="fas fa-tag"></i> Subject
+                                    </label>
+                                    <select id="subject" required>
+                                        <option value="">Select a Subject</option>
+                                        <option value="booking">Booking Inquiry</option>
+                                        <option value="schedule">Schedule Information</option>
+                                        <option value="feedback">Feedback</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="message">
+                                        <i class="fas fa-comment"></i> Your Message
+                                    </label>
+                                    <textarea id="message" rows="5" placeholder="Type your message here" required></textarea>
+                                </div>
+                                <button type="submit" class="submit-button">
+                                    Send Message <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!--
+                <div class="map-section">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3647.309925365315!2d25.909843776491547!3d-24.633376256467837!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ebb5b3c9f3b567d%3A0x3c6b3c60e8e7c544!2sNKK%20Express!5e0!3m2!1sen!2sbw!4v1709837154872!5m2!1sen!2sbw" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                -->
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-phone"></i> +267 391 5129</p>
+                <p><i class="fas fa-envelope"></i> info@nkkexpress.co.bw</p>
+                <p><i class="fas fa-envelope-open-text"></i> P o Box 20860, Gaborone </p>
+                <p><i class="fas fa-map-marker-alt"></i> Plot 11807, Mogoditshane, Botswana</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/nkkexpress?mibextid=LQQJ4d%20" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="https://api.whatsapp.com/send/?phone=27736155897&text&type=phone_number&app_absent=0" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="schedule.html">Bus Schedule</a></li>
+                    <li><a href="book.html">Book Tickets</a></li>
+                    <li><a href="faq.html">FAQs</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Policies and Regulations</h3>
+                <ul>
+                    <li><a href="Terms and Conditions of NKK Express Passenger Transport Website.pdf" target="_blank">Terms & Conditions</a></li>
+                    <li><a href="Safety & Quality.pdf" target="_blank">Safety & Quality</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 NKK Express. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 

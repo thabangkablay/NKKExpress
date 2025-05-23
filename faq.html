@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQs - NKK Express</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Base styles */
+        :root {
+            --primary-color: #800000;
+            --primary-light: rgba(128, 0, 0, 0.1);
+            --text-color: #333;
+            --spacing-unit: 1rem;
+        }
+
+        /* Container responsiveness */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* Hero section responsiveness */
+        .faq-hero {
+            height: 53vh;
+            background: linear-gradient(rgba(128, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('2024/05/All.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .faq-hero-content {
+            max-width: 800px;
+            padding: 30px;
+        }
+
+        .faq-hero-content h1 {
+            font-size: clamp(2rem, 5vw, 3.1rem);
+            margin-bottom: 1rem;
+            color: white;
+            font-weight: 1000;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .faq-hero-content p {
+            font-size: clamp(1rem, 2.5vw, 1.4rem);
+            color: white;
+            line-height: 1.4;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Navigation responsiveness */
+        .nav-links {
+            display: flex;
+            gap: var(--spacing-unit);
+        }
+
+        .nav-contact {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-unit);
+        }
+
+        /* FAQ Categories responsiveness */
+        .faq-categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .category-tab {
+            flex: 1;
+            min-width: 200px;
+            padding: 1rem;
+            font-size: clamp(0.875rem, 1.5vw, 1rem);
+        }
+
+        /* FAQ Items responsiveness */
+        .faq-item {
+            margin-bottom: 1rem;
+        }
+
+        .faq-question h3 {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            padding: 1rem;
+        }
+
+        .faq-answer {
+            font-size: clamp(0.875rem, 1.5vw, 1rem);
+            padding: 1rem;
+        }
+
+        /* Footer responsiveness */
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 2rem var(--spacing-unit);
+        }
+
+        /* Tablet Styles */
+        @media (max-width: 1024px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+
+            .faq-hero {
+                height: 45vh;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+            }
+
+            .category-tab {
+                min-width: 180px;
+            }
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            :root {
+                --spacing-unit: 0.75rem;
+            }
+
+            .faq-hero {
+                height: 40vh;
+            }
+
+            .nav-contact {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+
+            .category-tab {
+                min-width: 100%;
+            }
+
+            .faq-question h3 {
+                padding: 0.75rem;
+            }
+
+            .faq-answer {
+                padding: 0.75rem;
+            }
+        }
+
+        /* Small Mobile Styles */
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .faq-hero {
+                height: 35vh;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .faq-hero {
+                height: auto;
+                padding: 2rem 0;
+            }
+
+            .faq-hero-content h1 {
+                color: var(--text-color);
+                text-shadow: none;
+            }
+
+            .faq-hero-content p {
+                color: var(--text-color);
+                text-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="2024/03/NKK-LOGO-2024-1-1536x1506.png" alt="NKK Express Logo">
+                </a>
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="schedule.html">Schedule</a></li>
+                <li><a href="book.html">Book Now</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="faq.html" class="active">FAQs</a></li>
+            </ul>
+            <div class="nav-contact">
+                <div class="contact-info">
+                    <span><i class="far fa-clock"></i> Mon-Fri: 8AM-4:30PM</span>
+                    <span><i class="fas fa-phone"></i> +267 391 5129</span>
+                </div>
+                <div class="nav-social">
+                    <a href="https://www.facebook.com/nkkexpress?mibextid=LQQJ4d%20" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="https://api.whatsapp.com/send/?phone=27736155897&text&type=phone_number&app_absent=0" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="faq-hero">
+            <div class="faq-hero-content">
+                <h1>Frequently Asked Questions</h1>
+                <p>Find answers to common questions about our services</p>
+            </div>
+        </section>
+
+        <section class="faq-content">
+            <div class="container">
+              <!---  <div class="faq-search">
+                    <div class="search-wrapper">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="faqSearch" placeholder="Search your question here...">
+                    </div> -->
+                </div>
+
+                <div class="faq-categories">
+                    <button class="category-tab active" data-category="general">General Information</button>
+                    <button class="category-tab" data-category="minors">Travelling With A Minor</button>
+                </div>
+
+                <div class="faq-sections">
+                    <div id="general" class="faq-category active">
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>How do I book a ticket for the NKK Express bus from Botswana to South Africa?</h3>
+                                <span class="icon"><i class="fas fa-chevron-down"></i></span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>You can book your ticket online through our website (www.nkkexpress.co.bw) by selecting your desired departure date and time, entering your personal information, and making a payment. Alternatively, you can also book a ticket at one of our ticketing offices in Botswana or South Africa.Another option can be calling our call centre at +267 3915129 / +267 73 189 559 / (South Africa : +27 73 6155 897).
+
+                                    <P>Payment can be made by use of credit card, debit card or bank transfer, PAY TO CELL. Alternatively visit any of our offices where you will find our sales personnel who will be more than willing to assist</P>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>What payment options do I have?</h3>
+                                <span class="icon"><i class="fas fa-chevron-down"></i></span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>We accept the following payment methods:</p>
+                                <ul class="payment-list">
+                                    <li><i class="fas fa-money-bill"></i> Cash</li>
+                                    <li><i class="far fa-credit-card"></i> Credit Card</li>
+                                    <li><i class="fas fa-credit-card"></i> Debit Card</li>
+                                    <li><i class="fas fa-university"></i> Bank Transfer (Electronic Banking)</li>
+                                    <li><i class="fas fa-mobile-alt"></i> PAY TO CELL</li>
+                                    <li><i class="fas fa-landmark"></i> Bank Deposit</li>
+                                </ul>
+                                <p class="note"><i class="fas fa-info-circle"></i> You can also visit any of our offices where our sales personnel will be happy to assist you.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>What are the departure and arrival locations for the NKK Express bus service?</h3>
+                                <span class="icon"><i class="fas fa-chevron-down"></i></span>
+                            </div>
+                            <div class="faq-answer">
+                                <div class="route-info">
+                                    <h3 class="route-section-title">Botswana Bus Departure Information</h3>
+                                    <p class="route-intro">The departure location in Botswana is typically in the capital city of Gaborone at our Head Office for pre-booked buses. Other buses are boarded at the bus rank.</p>
+
+                                    <div class="route-section">
+                                        <h4 class="route-title">Gaborone to Johannesburg (O R Tambo International Airport)</h4>
+                                        
+                                        <div class="departure-info">
+                                            <h5>Gaborone Departure</h5>
+                                            <ul>
+                                                <li><i class="far fa-clock"></i> Departure time: 08:00</li>
+                                                <li>
+                                                    <i class="fas fa-map-marker-alt"></i> Boarding Locations:
+                                                    <ul>
+                                                        <li>06:00 - NKK HOUSE (Mogoditshane, Nkovaphire Plot TIBD7, Opposite Tubinite Mail along Gabane Road)</li>
+                                                        <li>08:30 - SHELL FILLING STATION RIVERWALK (Opposite Naledi Motors)</li>
+                                                    </ul>
+                                                </li>
+                                                <li class="booking-number"><i class="fas fa-phone"></i> Booking Number: +267 73 189 559</li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="arrival-info">
+                                            <h5>O R Tambo Airport Boarding</h5>
+                                            <ul>
+                                                <li><i class="fas fa-map-marker-alt"></i> Bus Terminal O R Tambo Airport (Behind InterContinental Johannesburg O R Tambo Airport Hotel)</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="route-section">
+                                        <h4 class="route-title">Gaborone-Maun Route</h4>
+                                        
+                                        <div class="departure-info">
+                                            <h5>Gaborone Departure</h5>
+                                            <ul>
+                                                <li><i class="far fa-clock"></i> Departure time: 18:30</li>
+                                                <li><i class="fas fa-map-marker-alt"></i> Boarding: Gaborone Bus Rank</li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="arrival-info">
+                                            <h5>Maun Arrival</h5>
+                                            <ul>
+                                                <li><i class="far fa-clock"></i> Departure time: 18:30</li>
+                                                <li><i class="fas fa-map-marker-alt"></i> Boarding: Maun Bus Rank</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="route-section">
+                                        <h4 class="route-title">Francistown - Maun Route via Letlhakane</h4>
+                                        
+                                        <div class="departure-info">
+                                            <h5>Francistown Departure</h5>
+                                            <ul>
+                                                <li><i class="far fa-clock"></i> Departure time: 23:30</li>
+                                                <li><i class="fas fa-map-marker-alt"></i> Boarding: Francistown Bus Rank</li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="arrival-info">
+                                            <h5>Maun Arrival</h5>
+                                            <ul>
+                                                <li><i class="far fa-clock"></i> Departure time: 20:00</li>
+                                                <li><i class="fas fa-map-marker-alt"></i> Boarding: Maun Bus Rank</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>What is the duration of the bus journey between departure and arrival destination?</h3>
+                                <span class="icon"><i class="fas fa-chevron-down"></i></span>
+                            </div>
+                            <div class="faq-answer">
+                                <div class="route-info">
+                                    <div class="route-section">
+                                        <h4 class="route-title">Gaborone to Johannesburg (O R Tambo International Airport)</h4>
+                                        <div class="journey-duration">
+                                            <i class="fas fa-clock"></i>
+                                            <p>The duration of the bus journey can vary depending on traffic and road conditions, but it typically takes around <strong>5–6 hours</strong> to travel between Botswana and South Africa.</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="route-section">
+                                        <h4 class="route-title">Gaborone – Maun Route</h4>
+                                        <div class="journey-duration">
+                                            <i class="fas fa-clock"></i>
+                                            <p>The duration of the bus journey can vary depending on traffic and road conditions, but it typically takes around <strong>10–11 hours</strong> to travel between Gaborone and Maun.</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="route-section">
+                                        <h4 class="route-title">Francistown – Maun Route via Letlhakane</h4>
+                                        <div class="journey-duration">
+                                            <i class="fas fa-clock"></i>
+                                            <p>The duration of the bus journey can vary depending on traffic and road conditions, but it typically takes around <strong>8–9 hours</strong> to travel between Francistown and Maun.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>What are the safety measures in place on NKK Express buses?</h3>
+                                <span class="icon"><i class="fas fa-chevron-down"></i></span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>We maintain strict safety protocols including regular vehicle maintenance, experienced drivers, and adherence to all safety regulations.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>Are there any onboard amenities on the NKK Express bus?</h3>
+                                <span class="icon"><i class="fas fa-chevron-down"></i></span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Yes, our buses are equipped with air conditioning, comfortable seating, onboard entertainment, and restroom facilities.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>How do I contact NKK Express customer service for further assistance?</h3>
+                                <span class="icon"><i class="fas fa-chevron-down"></i></span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>You can reach our customer service team through phone at +267 391 5129, email at info@nkkexpress.co.bw, or visit our office during business hours.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="minors" class="faq-category">
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>What are the requirements for traveling with a minor on NKK Express bus services between Botswana and South Africa?</h3>
+                                <span class="icon"><i class="fas fa-chevron-down"></i></span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Minors must have valid travel documentation and parental consent forms. Additional requirements may apply based on current regulations.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>Can minors travel alone on NKK Express buses between Botswana and South Africa?</h3>
+                                <span class="icon"><i class="fas fa-chevron-down"></i></span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Minors under the age of 18 are allowed to travel alone on NKK Express buses; however, they must have all the necessary travel documentation and parental consent forms in place. We also recommend that parents or guardians inform our staff of the minor traveling alone for added safety and assistance during the journey.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>Are there any restrictions on the times minors can travel on NKK Express buses?</h3>
+                                <span class="icon"><i class="fas fa-chevron-down"></i></span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Please contact our customer service for specific information about travel time restrictions for minors.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>How do I pay for a ticket for a minor traveling on NKK Express buses?</h3>
+                                <span class="icon"><i class="fas fa-chevron-down"></i></span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Tickets for minors can be purchased through our standard booking channels. Special rates may apply for children under certain ages.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>Can I make changes to a booking for a minor traveling on NKK Express buses?</h3>
+                                <span class="icon"><i class="fas fa-chevron-down"></i></span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Yes, booking changes can be made subject to our standard booking modification policies. Contact our customer service for assistance.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-contact">
+                    <h3>Still have questions?</h3>
+                    <p>Our customer service team is here to help</p>
+                    <a href="contact.html" class="contact-button">Contact Us</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-phone"></i> +267 391 5129</p>
+                <p><i class="fas fa-envelope"></i> info@nkkexpress.co.bw</p>
+                <p><i class="fas fa-envelope-open-text"></i> P o Box 20860, Gaborone </p>
+                <p><i class="fas fa-map-marker-alt"></i> Plot 11807, Mogoditshane, Botswana</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/nkkexpress?mibextid=LQQJ4d%20" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="https://api.whatsapp.com/send/?phone=27736155897&text&type=phone_number&app_absent=0" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="schedule.html">Bus Schedule</a></li>
+                    <li><a href="book.html">Book Tickets</a></li>
+                    <li><a href="faq.html">FAQs</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Policies and Regulations</h3>
+                <ul>
+                    <li><a href="Terms and Conditions of NKK Express Passenger Transport Website.pdf" target="_blank">Terms & Conditions</a></li>
+                    <li><a href="Safety & Quality.pdf" target="_blank">Safety & Quality</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 NKK Express. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Accordion Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // FAQ Items Click Handling
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                const answer = item.querySelector('.faq-answer');
+                
+                question.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+                    
+                    // Close all other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                            const otherAnswer = otherItem.querySelector('.faq-answer');
+                            otherAnswer.style.maxHeight = null;
+                        }
+                    });
+                    
+                    // Toggle current item
+                    item.classList.toggle('active');
+                    
+                    // Handle answer height
+                    if (!isActive) {
+                        answer.style.maxHeight = answer.scrollHeight + "px";
+                    } else {
+                        answer.style.maxHeight = null;
+                    }
+                });
+            });
+
+            // FAQ Category Tabs
+            const categoryTabs = document.querySelectorAll('.category-tab');
+            const faqCategories = document.querySelectorAll('.faq-category');
+            
+            categoryTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const category = tab.getAttribute('data-category');
+                    
+                    // Update active tab
+                    categoryTabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    
+                    // Show selected category
+                    faqCategories.forEach(cat => {
+                        cat.classList.remove('active');
+                        if (cat.id === category) {
+                            cat.classList.add('active');
+                        }
+                    });
+
+                    // Reset all accordions when switching categories
+                    faqItems.forEach(item => {
+                        item.classList.remove('active');
+                        const answer = item.querySelector('.faq-answer');
+                        answer.style.maxHeight = null;
+                    });
+                });
+            });
+
+            // FAQ Search Functionality
+            const searchInput = document.getElementById('faqSearch');
+            if (searchInput) {
+                searchInput.addEventListener('input', (e) => {
+                    const searchTerm = e.target.value.toLowerCase();
+                    
+                    faqItems.forEach(item => {
+                        const question = item.querySelector('.faq-question h3').textContent.toLowerCase();
+                        const answer = item.querySelector('.faq-answer p').textContent.toLowerCase();
+                        
+                        if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+                            item.style.display = 'block';
+                            // Show the category containing matching items
+                            const category = item.closest('.faq-category');
+                            if (category) {
+                                categoryTabs.forEach(tab => {
+                                    if (tab.getAttribute('data-category') === category.id) {
+                                        tab.click();
+                                    }
+                                });
+                            }
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+
+                    // If search is empty, reset to default view
+                    if (searchTerm === '') {
+                        faqItems.forEach(item => {
+                            item.style.display = 'block';
+                        });
+                    }
+                });
+            }
+        });
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html> 
