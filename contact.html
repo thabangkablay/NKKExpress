@@ -54,6 +54,54 @@
                 font-size: 1rem;
             }
         }
+
+        .header {
+            background: #e6e6fa;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            height: 70px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .header.scrolled {
+            height: 60px;
+            background: rgba(230, 230, 250, 0.98);
+            backdrop-filter: blur(8px);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            height: 100%;
+            position: relative;
+        }
+
+        .logo {
+            height: 70px;
+            display: flex;
+            align-items: center;
+            padding: 3px 0;
+        }
+
+        .logo img {
+            height: 65px;
+            width: auto;
+            padding: 0;
+            mix-blend-mode: multiply;
+            object-fit: contain;
+        }
+
+        .header.scrolled .logo img {
+            height: 55px;
+        }
     </style>
 </head>
 <body>
@@ -71,7 +119,7 @@
             </div>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
+                <li><a href="about.html">About Us</a></li>
                 <li><a href="schedule.html">Schedule</a></li>
                 <li><a href="book.html">Book Now</a></li>
                 <li><a href="contact.html" class="active">Contact Us</a></li>
