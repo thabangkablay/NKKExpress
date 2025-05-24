@@ -536,16 +536,16 @@
 
         .routes-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 6px;
-            max-width: 900px;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+            max-width: 1000px;
             margin: 0 auto;
-            padding: 0 8px;
+            padding: 0 15px;
         }
 
         .route-card {
-            padding: 8px;
-            border-radius: 15px;
+            padding: 20px;
+            border-radius: 12px;
             text-align: center;
             transition: all 0.3s ease;
             box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
@@ -553,27 +553,21 @@
             border: 2px solid var(--border-color);
         }
 
-        .route-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 2px 8px rgba(74, 0, 0, 0.12);
-            background: linear-gradient(135deg, #ffe0e0, #fff2f2);
-        }
-
         .route-card h3 {
-            font-size: 0.95rem;
-            color: #333;
-            margin-bottom: 6px;
+            font-size: 1.13rem;
+            color: #111111;
+            margin-bottom: 12px;
             font-weight: 600;
         }
 
         .route-button {
             display: inline-block;
-            padding: 8px 20px;
+            padding: 10px 25px;
             background: #800000;
             color: white;
             text-decoration: none;
             border-radius: 20px;
-            font-size: 0.85rem;
+            font-size: 0.95rem;
             font-weight: 500;
             transition: all 0.3s ease;
             border: 2px solid #800000;
@@ -586,22 +580,24 @@
         }
 
         @media (max-width: 768px) {
-            .routes-title {
-                font-size: 1.4rem;
-            }
-
             .routes-grid {
-                gap: 5px;
-                padding: 0 6px;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 15px;
+                padding: 0 15px;
             }
 
             .route-card {
-                padding: 6px;
+                padding: 20px;
+            }
+
+            .route-card h3 {
+                font-size: 1.2rem;
+                margin-bottom: 12px;
             }
 
             .route-button {
-                padding: 4px 12px;
-                font-size: 0.8rem;
+                padding: 10px 25px;
+                font-size: 0.95rem;
             }
         }
 
@@ -706,38 +702,51 @@
 
         .partners-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 40px;
-            max-width: 1200px;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1px;
+            max-width: 1000px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 1px;
         }
 
         .partner-card {
             background: white;
-            padding: 30px;
-            border-radius: 15px;
+            padding: 10px;
+            border-radius: 10px;
             text-align: center;
             transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
             box-shadow: var(--box-shadow);
             border: 2px solid var(--border-color);
+            width: 120px;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+        }
+
+        .partner-image {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .partner-logo {
+            max-width: 60px;
+            max-height: 60px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            transition: all 0.4s ease;
         }
 
         .partner-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-        }
-
-        .partner-logo {
-            max-width: 100px;
-            height: auto;
-            transition: all 0.4s ease;
-        }
-
-        .partner-card:hover .partner-logo {
-            transform: scale(1.1);
         }
 
         .partner-overlay {
@@ -747,9 +756,9 @@
             right: 0;
             background: rgba(128, 0, 0, 0.95);
             color: white;
-            padding: 20px;
+            padding: 10px;
             transition: all 0.4s ease;
-            border-radius: 0 0 15px 15px;
+            border-radius: 0 0 10px 10px;
         }
 
         .partner-card:hover .partner-overlay {
@@ -757,13 +766,13 @@
         }
 
         .partner-overlay h3 {
-            font-size: 1.2rem;
-            margin-bottom: 5px;
+            font-size: 0.9rem;
+            margin-bottom: 3px;
             font-weight: 600;
         }
 
         .partner-overlay p {
-            font-size: 0.9rem;
+            font-size: 0.7rem;
             opacity: 0.9;
         }
 
@@ -809,7 +818,52 @@
             }
 
             .partners-grid {
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+                gap: 1px;
+                padding: 0;
+            }
+
+            .partner-card {
+                width: 90px;
+                height: 90px;
+                padding: 8px;
+                border-radius: 8px;
+            }
+
+            .partner-logo {
+                max-width: 45px;
+                max-height: 45px;
+            }
+
+            .partner-overlay {
+                padding: 5px;
+            }
+
+            .partner-overlay h3 {
+                font-size: 0.8rem;
+                margin-bottom: 2px;
+            }
+
+            .partner-overlay p {
+                font-size: 0.6rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .partners-grid {
+                grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+            }
+
+            .partner-card {
+                width: 80px;
+                height: 80px;
+                padding: 6px;
+                border-radius: 6px;
+            }
+
+            .partner-logo {
+                max-width: 40px;
+                max-height: 40px;
             }
         }
 
@@ -1026,6 +1080,43 @@
             background: #4a0000;
             border-color: #4a0000;
         }
+
+        .logo img {
+            max-height: 80px;
+            width: auto;
+            transition: all 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .logo img {
+                max-height: 60px;
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                width: 100%;
+                text-align: center;
+                padding: 10px 0;
+            }
+
+            .nav-links.active {
+                display: block;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo img {
+                max-height: 50px;
+            }
+
+            .navbar {
+                padding: 10px 15px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1221,7 +1312,7 @@
         <section class="partners-section">
             <div class="section-container">
                 <h2 class="routes-title" style="color: maroon;">Our Trusted Partners</h2>
-                <p class="routes-description" style="padding: 2px; color: rgb(0, 0, 0);">Proudly working with Botswana's leading organizations</p>
+                <p class="routes-description" style="padding-bottom: 1rem; color: rgb(0, 0, 0);">Proudly working with Botswana's leading organizations</p>
                 
                 <div class="partners-grid">
                     <div class="partner-card">
