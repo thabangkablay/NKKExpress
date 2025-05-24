@@ -536,44 +536,44 @@
 
         .routes-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 6px;
-            max-width: 900px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 0 8px;
+            padding: 0 15px;
         }
 
         .route-card {
-            padding: 8px;
+            padding: 20px 15px;
             border-radius: 15px;
             text-align: center;
             transition: all 0.3s ease;
-            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
             background: linear-gradient(135deg, #ffe8e8, #fff5f5);
             border: 2px solid var(--border-color);
         }
 
         .route-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 2px 8px rgba(74, 0, 0, 0.12);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(74, 0, 0, 0.15);
             background: linear-gradient(135deg, #ffe0e0, #fff2f2);
         }
 
         .route-card h3 {
-            font-size: 0.95rem;
+            font-size: 1.2rem;
             color: #333;
-            margin-bottom: 6px;
+            margin-bottom: 12px;
             font-weight: 600;
         }
 
         .route-button {
             display: inline-block;
-            padding: 8px 20px;
+            padding: 10px 25px;
             background: #800000;
             color: white;
             text-decoration: none;
-            border-radius: 20px;
-            font-size: 0.85rem;
+            border-radius: 25px;
+            font-size: 1rem;
             font-weight: 500;
             transition: all 0.3s ease;
             border: 2px solid #800000;
@@ -586,22 +586,24 @@
         }
 
         @media (max-width: 768px) {
-            .routes-title {
-                font-size: 1.4rem;
-            }
-
             .routes-grid {
-                gap: 5px;
-                padding: 0 6px;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 12px;
+                padding: 0 10px;
             }
 
             .route-card {
-                padding: 6px;
+                padding: 15px 12px;
+            }
+
+            .route-card h3 {
+                font-size: 1.1rem;
+                margin-bottom: 10px;
             }
 
             .route-button {
-                padding: 4px 12px;
-                font-size: 0.8rem;
+                padding: 8px 20px;
+                font-size: 0.95rem;
             }
         }
 
@@ -706,38 +708,34 @@
 
         .partners-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+            gap: 10px;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 15px;
         }
 
         .partner-card {
             background: white;
-            padding: 30px;
-            border-radius: 15px;
+            padding: 10px;
+            border-radius: 8px;
             text-align: center;
             transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
             box-shadow: var(--box-shadow);
-            border: 2px solid var(--border-color);
+            border: 1px solid var(--border-color);
         }
 
         .partner-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
         }
 
         .partner-logo {
-            max-width: 100px;
+            max-width: 50px;
             height: auto;
             transition: all 0.4s ease;
-        }
-
-        .partner-card:hover .partner-logo {
-            transform: scale(1.1);
         }
 
         .partner-overlay {
@@ -747,23 +745,26 @@
             right: 0;
             background: rgba(128, 0, 0, 0.95);
             color: white;
-            padding: 20px;
+            padding: 6px;
             transition: all 0.4s ease;
-            border-radius: 0 0 15px 15px;
+            border-radius: 0 0 8px 8px;
+            pointer-events: none;
+            opacity: 0;
         }
 
         .partner-card:hover .partner-overlay {
             bottom: 0;
+            opacity: 1;
         }
 
         .partner-overlay h3 {
-            font-size: 1.2rem;
-            margin-bottom: 5px;
+            font-size: 0.8rem;
+            margin-bottom: 2px;
             font-weight: 600;
         }
 
         .partner-overlay p {
-            font-size: 0.9rem;
+            font-size: 0.7rem;
             opacity: 0.9;
         }
 
@@ -809,7 +810,17 @@
             }
 
             .partners-grid {
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+                gap: 8px;
+            }
+            
+            .partner-overlay {
+                display: none;
+            }
+            
+            .partner-card:hover {
+                transform: none;
+                box-shadow: var(--box-shadow);
             }
         }
 
@@ -1026,6 +1037,54 @@
             background: #4a0000;
             border-color: #4a0000;
         }
+
+        .header {
+            background: #e6e6fa;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            height: 70px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .header.scrolled {
+            height: 60px;
+            background: rgba(230, 230, 250, 0.98);
+            backdrop-filter: blur(8px);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            height: 100%;
+            position: relative;
+        }
+
+        .logo {
+            height: 70px;
+            display: flex;
+            align-items: center;
+            padding: 3px 0;
+        }
+
+        .logo img {
+            height: 65px;
+            width: auto;
+            padding: 0;
+            mix-blend-mode: multiply;
+            object-fit: contain;
+        }
+
+        .header.scrolled .logo img {
+            height: 55px;
+        }
     </style>
 </head>
 <body>
@@ -1221,7 +1280,7 @@
         <section class="partners-section">
             <div class="section-container">
                 <h2 class="routes-title" style="color: maroon;">Our Trusted Partners</h2>
-                <p class="routes-description" style="padding: 2px; color: rgb(0, 0, 0);">Proudly working with Botswana's leading organizations</p>
+                <p class="routes-description" style="padding-bottom: 1rem; color: rgb(0, 0, 0);">Proudly working with Botswana's leading organizations</p>
                 
                 <div class="partners-grid">
                     <div class="partner-card">
